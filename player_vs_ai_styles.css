@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #ff0000; /* Dark blue */
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 300px; /* Adjusted width to fit 5x6 grid */
+    border-radius: 10px;
+}
+
+h1 {
+    margin-top: 0;
+    color: rgb(255, 255, 255); /* Red text */
+}
+
+#ticTacToe {
+    border-collapse: collapse;
+    border: 2px solid #333;
+}
+
+#ticTacToe td {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#scoreboard {
+    margin-top: 20px; /* Adjust margin as needed */
+    text-align: left; /* Align player information to the left */
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px; /* Add some space between the player information and the button */
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+button:active {
+    background-color: #ff0000;
+}

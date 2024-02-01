@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="player_vs_ai_styles.css">
+    <style>
+        /* Common styles */
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            color: #ffffff; /* Text color */
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ffffff; /* Header text color */
+        }
+
+        #game {
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        #info {
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        #scores {
+            color: #ffffff; /* Score text color */
+        }
+
+        #playerInfo {
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        #player1Info,
+        #player2Info {
+            color: #ffffff; /* Player info text color */
+        }
+
+        /* Style for the restart button */
+        #restartButton {
+            background-color: #000000;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        #restartButton:hover {
+            background-color: #5a5a5a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe 5x6</h1>
+        <div id="game">
+            <table id="ticTacToe"></table>
+        </div>
+        <div id="info">
+            <div id="turnLabel">Turn: Player X</div>
+            <div id="scores">Scores:
+                <span id="scoreX">0</span> - <span id="scoreO">0</span>
+            </div> 
+        </div>
+        <!-- Display player names and positions -->
+        <div id="playerInfo">
+            <div id="player1Info">Player 1: <span id="player1Name"></span> (<span id="player1Symbol"></span>)</div>
+            <div id="player2Info">Player 2: <span id="player2Name"></span> (<span id="player2Symbol"></span>)</div>
+        </div>
+        <!-- Restart game button -->
+        <button id="restartButton" onclick="restartGame()">Restart Game</button>
+    </div>
+    <script src="tic_tac_toe_script.js"></script>
+    <script>
+        // Retrieve player data from URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const player1Name = urlParams.get('player1Name');
+        const player2Name = urlParams.get('player2Name');
+        const player1Symbol = urlParams.get('player1Symbol');
+        const player2Symbol = urlParams.get('player2Symbol');
+
+        // Update DOM elements with player data
+        document.getElementById("player1Name").textContent = player1Name;
+        document.getElementById("player2Name").textContent = player2Name;
+        document.getElementById("player1Symbol").textContent = player1Symbol;
+        document.getElementById("player2Symbol").textContent = player2Symbol;
+
+        // Restart game function
+        function restartGame() {
+            window.location.reload(); // Reload the current page
+        }
+    </script>
+</body>
+</html>

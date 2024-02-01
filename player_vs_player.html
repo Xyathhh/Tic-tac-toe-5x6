@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player vs Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #ff0000;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px;
+            width: 200px; /* Adjusted width */
+            border: 2px solid #ff0000; /* Set border color to red */
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #ff0000; /* Change border color on focus */
+        }
+
+        .btn:hover {
+            background-color: #ff0000;
+        }
+
+        .players {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Player vs Player</h1>
+        <div class="players">
+            <div class="form-group">
+                <label for="player1Name">Player 1:</label>
+                <input type="text" id="player1Name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="player1Symbol">Desired Position:</label>
+                <select id="player1Symbol" onchange="updatePlayer2Options()">
+                    <option value="X">X</option>
+                    <option value="O">O</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="player2Name">Player 2:</label>
+                <input type="text" id="player2Name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="player2Symbol">Desired Position:</label>
+                <span id="player2SymbolDisplay"></span>
+            </div>
+        </div>
+        <button class="btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            let player1Name = document.getElementById("player1Name").value;
+            let player2Name = document.getElementById("player2Name").value;
+            let player1Symbol = document.getElementById("player1Symbol").value;
+            let player2Symbol = player1Symbol === 'X' ? 'O' : 'X';
+
+        // Construct URL with player data as query parameters
+        let url = `tic_tac_toe.html?player1Name=${player1Name}&player2Name=${player2Name}&player1Symbol=${player1Symbol}&player2Symbol=${player2Symbol}`;
+
+        // Navigate to tic_tac_toe.html with the constructed URL
+        window.location.href = url;
+}
+
+
+        function updatePlayer2Options() {
+            let player1Symbol = document.getElementById("player1Symbol").value;
+            let player2SymbolDisplay = document.getElementById("player2SymbolDisplay");
+
+            // Assign opposite symbol to Player 2
+            let player2Symbol = player1Symbol === 'X' ? 'O' : 'X';
+
+            // Update Player 2's symbol display
+            player2SymbolDisplay.innerText = player2Symbol;
+        }
+    </script>
+</body>
+</html>
